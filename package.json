@@ -6,6 +6,7 @@
   "license": "MIT",
   "repository": "AI4Bharat/indic-transliterate-js",
   "types": "dist/types.d.ts",
+  "type": "module",
   "keywords": [
     "indic",
     "transliterate",
@@ -28,7 +29,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "dev": "yarn start & cd example && yarn start"
+    "dev": "yarn start & cd example && yarn start",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "react": "^16.0.0"
