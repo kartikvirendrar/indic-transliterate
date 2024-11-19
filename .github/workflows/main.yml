@@ -10,15 +10,18 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+
+            - name: Setup Node.js Environment
+              uses: actions/setup-node@v3
               with:
-                node-version: 22.11.0
+                  node-version: 22.11.0
+
             - name: Install base packages 🔧
-              run: |
-                  npm ci
+              run: npm ci --ignore-scripts
+
             - name: Install and Build 🔧
               run: |
-                  npm install --ignore-scripts
+                  npm install --ignore-scripts --force
                   npm run build
               working-directory: example
               env:
