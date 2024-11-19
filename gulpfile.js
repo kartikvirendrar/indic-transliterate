@@ -9,5 +9,8 @@ export function buildEslintRules() {
     .pipe(eslint.failAfterError());
 }
 
+// Alias for compatibility
+gulp.task('build-eslint-rules', buildEslintRules);
+
 // Default task
 export default gulp.series(buildEslintRules);
