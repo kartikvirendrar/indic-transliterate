@@ -1,6 +1,6 @@
-const esbuild = require('esbuild');
-const fs = require('fs');
-const path = require('path');
+import * as esbuild from 'esbuild';
+import fs from 'fs';
+import path from 'path';
 
 // Output directory
 const outDir = 'dist';
