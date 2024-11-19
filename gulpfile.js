@@ -1,13 +1,13 @@
-const gulp = require('gulp');
-const eslint = require('gulp-eslint');
+import gulp from 'gulp';
+import eslint from 'gulp-eslint';
 
 // Task to build eslint rules
-gulp.task('build-eslint-rules', () => {
-  // This is where you can define the task logic
-  // For example, running eslint checks on your source files
+export function buildEslintRules() {
+  return gulp.src(['src/**/*.{js,jsx,ts,tsx}', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+}
 
-  return 1
-});
-
-// Default gulp task (optional)
-gulp.task('default', gulp.series('build-eslint-rules'));
+// Default task
+export default gulp.series(buildEslintRules);
