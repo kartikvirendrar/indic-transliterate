@@ -16,9 +16,10 @@ jobs:
             - name: Install base packages 🔧
               run: |
                   npm ci
+                  npm install
                   npm run build
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@v4.2.5
               with:
                   branch: gh-pages
-                  folder: example/build
+                  folder: build
