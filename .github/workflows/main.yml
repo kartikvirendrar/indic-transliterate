@@ -16,6 +16,7 @@ jobs:
             - name: Install base packages 🔧
               run: |
                   npm ci
+                  npm install --force
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@v4.2.5
               with:
