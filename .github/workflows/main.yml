@@ -25,11 +25,11 @@ jobs:
                       ${{ runner.os }}-node-
 
             - name: Install base packages 🔧
-              run: npm ci
+              run: npm ci --ignore-scripts
 
             - name: Install and Build 🔧
               run: |
-                  npm install --legacy-peer-deps
+                  npm ci --ignore-scripts
                   npm run build
               working-directory: example
               env:
