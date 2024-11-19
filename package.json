@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "parcel watch",
-    "build": "node build.js",
+    "build": "parcel build",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
