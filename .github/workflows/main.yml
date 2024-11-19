@@ -10,15 +10,26 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+
+            - name: Setup Node.js Environment
+              uses: actions/setup-node@v3
               with:
-                node-version: 22.11.0
+                  node-version: 22.11.0
+
+            - name: Cache Node.js Modules
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
             - name: Install base packages 🔧
-              run: |
-                  npm ci
+              run: npm ci
+
             - name: Install and Build 🔧
               run: |
-                  npm install --force
+                  npm install --legacy-peer-deps
                   npm run build
               working-directory: example
               env:
